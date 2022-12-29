@@ -37,9 +37,27 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/cecgroup/CloudOfficeDocs/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/cecgroup/CloudOfficeDocs/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl: ({locale, versionDocsDirPath, docPath}) => {
+          //   // 将简体中文文档链接到 Crowdin
+          //   if (locale !== DefaultLocale) {
+          //     return `https://crowdin.com/project/docusaurus-v2/${locale}`;
+          //   }
+          //   //  将英文文档链接到 GitHub
+          //   return `https://github.com/cecgroup/CloudOfficeDocs/edit/main/website/${versionDocsDirPath}/${docPath}`;
+          // },
+          editUrl: ({locale, docPath}) => {
+            if (locale !== 'en') {
+              return `https://crowdin.com/project/docusaurus-v2/${locale}`;
+            }
+            // We want users to submit doc updates to the upstream/next version!
+            // Otherwise we risk losing the update on the next release.
+            const nextVersionDocsDirPath = 'docs';
+            return `https://github.com/cecgroup/CloudOfficeDocs/edit/main/website/${nextVersionDocsDirPath}/${docPath}`;
+          },
         },
+        
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
