@@ -54,7 +54,7 @@ const config = {
             // We want users to submit doc updates to the upstream/next version!
             // Otherwise we risk losing the update on the next release.
             const nextVersionDocsDirPath = 'docs';
-            return `https://github.com/cecgroup/CloudOfficeDocs/edit/main/website/${nextVersionDocsDirPath}/${docPath}`;
+            return `https://github.com/cecgroup/CloudOfficeDocs/edit/main/${nextVersionDocsDirPath}/${docPath}`;
           },
         },
         
